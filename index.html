@@ -100,6 +100,20 @@ a.local{
     border-radius:30px;
 }
 
+/* Estilo para os botões de confirmação */
+.botoes-confirmacao {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+.botoes-confirmacao a {
+    flex: 1 1 auto;
+    min-width: 140px;
+    margin-top: 0; /* remove o margin-top do .local */
+}
+
 .emoji{
     position:fixed;
     font-size:24px;
@@ -160,6 +174,20 @@ target="_blank"
 href="https://maps.app.goo.gl/TsNqcgzimaAAWEjV8">
 📍 Ver ponto de encontro
 </a>
+
+<!-- NOVOS BOTÕES DE CONFIRMAÇÃO -->
+<div class="botoes-confirmacao">
+    <a class="local"
+       href="https://wa.me/5598985197503?text=eu%20tentei%20apertar%20no%20n%C3%A3o%20mais%20de%205%20vezes%2C%20mas%20eu%20aceito%20sair%20contigo"
+       target="_blank">
+       ✅ Confirmar presença
+    </a>
+    <a class="local"
+       href="https://wa.me/5598985197503?text=n%C3%A3o%20vai%20dar%20pra%20eu%20%3D%28"
+       target="_blank">
+       ❌ Não vai dar pra eu =(
+    </a>
+</div>
 
 </div>
 
