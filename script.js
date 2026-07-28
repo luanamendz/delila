@@ -1,8 +1,6 @@
-// =============================
 // BOTÃO NÃO FUGINDO
-// =============================
 
-const nao = document.getElementById("nao");
+const botaoNao = document.getElementById("nao");
 
 let tentativas = 0;
 
@@ -11,91 +9,107 @@ function fugir(){
 
     tentativas++;
 
-    const largura = window.innerWidth - 120;
-    const altura = window.innerHeight - 80;
+
+    const largura =
+    window.innerWidth - 120;
 
 
-    nao.style.position = "fixed";
+    const altura =
+    window.innerHeight - 80;
 
-    nao.style.left =
+
+    botaoNao.style.position = "fixed";
+
+
+    botaoNao.style.left =
     Math.random() * largura + "px";
 
 
-    nao.style.top =
+    botaoNao.style.top =
     Math.random() * altura + "px";
+
 
 
     if(tentativas === 3){
 
-        nao.innerHTML = "😂 Errou";
+        botaoNao.innerHTML = "😂 Errou";
 
     }
 
 
     if(tentativas === 5){
 
-        nao.innerHTML = "🥺 Clica no SIM";
+        botaoNao.innerHTML = "🥺 Tenta o SIM";
+
+    }
+
+
+    if(tentativas === 8){
+
+        botaoNao.innerHTML = "❤️ Você sabe a resposta";
 
     }
 
 }
 
 
-nao.addEventListener("mouseenter", fugir);
 
-nao.addEventListener("click", fugir);
+botaoNao.addEventListener(
+"mouseover",
+fugir
+);
+
+
+botaoNao.addEventListener(
+"click",
+fugir
+);
 
 
 
-// =============================
+
 // BOTÃO SIM
-// =============================
 
 
-const sim = document.getElementById("sim");
-
-
-sim.addEventListener("click",()=>{
-
-
-    criarCorações();
-
-
-    setTimeout(()=>{
-
-
-        document
-        .getElementById("inicio")
-        .classList.remove("ativa");
-
-
-        document
-        .getElementById("encontro")
-        .classList.add("ativa");
-
-
-    },1200);
+const botaoSim =
+document.getElementById("sim");
 
 
 
-});
+botaoSim.onclick = function(){
+
+
+    document
+    .querySelector(".botoes")
+    .style.display="none";
+
+
+    document
+    .getElementById("resultado")
+    .style.display="block";
+
+
+    soltarAmor();
+
+
+};
 
 
 
 
-// =============================
-// CORAÇÕES LEVES
-// =============================
+
+// CORAÇÕES CAINDO LEVES
 
 
-function criarCorações(){
+function soltarAmor(){
 
 
 const emojis=[
 
 "❤️",
-"💕",
 "💖",
+"💕",
+"💗",
 "🥰",
 "😊"
 
@@ -103,51 +117,61 @@ const emojis=[
 
 
 
-for(let i=0;i<80;i++){
+let quantidade = 80;
 
 
-    let coracao=document.createElement("div");
+
+for(let i=0;i<quantidade;i++){
 
 
-    coracao.className="coracao";
+    let e =
+    document.createElement("div");
 
 
-    coracao.innerHTML =
+    e.className="emoji";
+
+
+    e.innerHTML =
     emojis[
-    Math.floor(Math.random()*emojis.length)
+    Math.floor(
+    Math.random()*emojis.length
+    )
     ];
 
 
 
-    coracao.style.left =
+    e.style.left =
     Math.random()*100+"vw";
 
 
 
-    coracao.style.fontSize =
-    (18 + Math.random()*18)+"px";
-
-
-
-    coracao.style.animationDuration =
+    e.style.animationDuration =
     (2 + Math.random()*2)+"s";
 
 
 
-    coracao.style.animationDelay =
-    Math.random()+"s";
+    e.style.animationDelay =
+    Math.random()*1.5+"s";
 
 
 
-    document.body.appendChild(coracao);
+    e.style.fontSize =
+    (18 + Math.random()*15)+"px";
+
+
+
+    document.body.appendChild(e);
 
 
 
     setTimeout(()=>{
 
-        coracao.remove();
 
-    },4500);
+        e.remove();
+
+
+    },5000);
+
 
 
 }
