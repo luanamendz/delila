@@ -2,349 +2,323 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
+
 
 body{
-    overflow:hidden;
+
     height:100vh;
-    background:linear-gradient(135deg,#ff7eb3,#ff758c,#ffb199);
+    overflow:hidden;
+
     display:flex;
     justify-content:center;
     align-items:center;
-}
 
-/* Fundo */
-.hearts{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    z-index:0;
-}
-
-.hearts span{
-    position:absolute;
-    bottom:-50px;
-    color:rgba(255,255,255,.5);
-    animation:subir linear infinite;
-}
-
-@keyframes subir{
-
-0%{
-transform:translateY(0) rotate(0);
-opacity:0;
-}
-
-20%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh) rotate(360deg);
-opacity:0;
-}
+    background:linear-gradient(
+        135deg,
+        #ff9fc9,
+        #ffc6dc,
+        #fff0f6
+    );
 
 }
+
+
+
+/* páginas */
 
 .pagina{
+
     position:absolute;
+
     width:100%;
     height:100%;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    padding:20px;
+
     opacity:0;
     visibility:hidden;
-    transition:.7s;
-    padding:20px;
-    z-index:1;
+
+    transition:.5s;
+
 }
 
+
 .pagina.ativa{
+
     opacity:1;
     visibility:visible;
+
 }
+
+
+
+/* cartão */
 
 .card{
 
     width:420px;
     max-width:95%;
+
     padding:35px;
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    border-radius:25px;
 
     text-align:center;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    background:rgba(255,255,255,.75);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.15);
+
+}
+
+
+h1{
+
+    color:#ff3d7f;
+
+    margin-bottom:20px;
+
+    font-size:32px;
+
+}
+
+
+h2{
+
+    color:#555;
+
+    margin:20px 0;
+
+}
+
+
+
+p{
+
+    color:#555;
+
+    font-size:18px;
+
+    line-height:1.5;
+
+}
+
+
+
+/* botões */
+
+.botoes{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-top:30px;
+
+}
+
+
+button{
+
+    border:0;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+#sim{
+
+    background:#ff4081;
 
     color:white;
 
 }
 
-.grande{
-    width:560px;
-}
-
-h1{
-
-font-size:36px;
-margin-bottom:20px;
-
-}
-
-h2{
-
-margin:20px 0;
-
-}
-
-h3{
-
-margin-top:20px;
-
-}
-
-.texto{
-
-font-size:20px;
-
-margin-bottom:10px;
-
-}
-
-.info{
-
-margin:20px 0;
-
-padding:20px;
-
-border-radius:18px;
-
-background:rgba(255,255,255,.18);
-
-}
-
-.botoes{
-
-display:flex;
-
-justify-content:center;
-
-gap:20px;
-
-margin-top:35px;
-
-}
-
-button{
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:50px;
-
-font-size:20px;
-
-cursor:pointer;
-
-transition:.3s;
-
-font-weight:bold;
-
-}
-
-#sim{
-
-background:#ff2d75;
-
-color:white;
-
-}
 
 #sim:hover{
 
-transform:scale(1.1);
+    transform:scale(1.05);
 
 }
+
+
 
 #nao{
 
-background:white;
+    background:#eee;
 
-color:#ff2d75;
-
-position:relative;
+    color:#555;
 
 }
 
-.maps{
 
-display:inline-block;
 
-margin-top:15px;
+/* página encontro */
 
-background:#0099ff;
 
-padding:14px 25px;
+.local{
 
-border-radius:40px;
+    background:#fff1f7;
 
-color:white;
+    padding:20px;
 
-text-decoration:none;
+    border-radius:20px;
 
-font-weight:bold;
-
-transition:.3s;
+    margin:20px 0;
 
 }
 
-.maps:hover{
 
-transform:scale(1.05);
-
-}
-
-.confirmacoes{
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
-
-margin-top:35px;
-
-}
-
-.confirmar{
-
-background:#25D366;
-
-color:white;
-
-padding:15px;
-
-border-radius:40px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.3s;
-
-}
-
-.confirmar:hover{
-
-transform:scale(1.05);
-
-}
-
-.ausencia{
-
-background:#ff4b4b;
-
-color:white;
-
-padding:15px;
-
-border-radius:40px;
-
-text-decoration:none;
-
-font-weight:bold;
-
-transition:.3s;
-
-}
-
-.ausencia:hover{
-
-transform:scale(1.05);
-
-}
-
-/* Emojis caindo */
-
-.chuva{
-
-position:fixed;
-
-top:-50px;
-
-font-size:28px;
-
-pointer-events:none;
-
-animation:cair linear forwards;
-
-z-index:9999;
-
-}
-
-@keyframes cair{
-
-0%{
-
-transform:translateY(-100px) rotate(0);
-
-opacity:1;
-
-}
-
-100%{
-
-transform:translateY(120vh) rotate(720deg);
-
-opacity:0;
-
-}
-
-}
-
-@media(max-width:600px){
-
-.card{
-
-padding:25px;
-
-}
-
-h1{
-
-font-size:28px;
-
-}
-
-button{
-
-width:120px;
-
-font-size:18px;
-
-}
-
-.confirmacoes{
-
-gap:12px;
-
-}
 
 .maps,
 .confirmar,
-.ausencia{
+.recusar{
 
-font-size:16px;
+    display:block;
+
+    text-decoration:none;
+
+    padding:15px;
+
+    border-radius:40px;
+
+    color:white;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
 
 }
+
+
+.maps{
+
+    background:#4285f4;
+
+}
+
+
+.confirmar{
+
+    background:#25D366;
+
+}
+
+
+.recusar{
+
+    background:#ff5252;
+
+}
+
+
+
+.maps:hover,
+.confirmar:hover,
+.recusar:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+
+/* corações */
+
+.coracao{
+
+    position:fixed;
+
+    top:-20px;
+
+    animation:cair linear forwards;
+
+    pointer-events:none;
+
+    z-index:999;
+
+}
+
+
+
+@keyframes cair{
+
+
+0%{
+
+    transform:translateY(-50px);
+
+    opacity:1;
+
+}
+
+
+100%{
+
+    transform:translateY(110vh);
+
+    opacity:0;
+
+}
+
+
+}
+
+
+
+/* celular */
+
+@media(max-width:600px){
+
+
+.card{
+
+    padding:25px;
+
+}
+
+
+h1{
+
+    font-size:26px;
+
+}
+
+
+h2{
+
+    font-size:20px;
+
+}
+
+
+button{
+
+    padding:13px 25px;
+
+}
+
 
 }
