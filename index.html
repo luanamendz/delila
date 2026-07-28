@@ -15,36 +15,38 @@
 
 body{
     background:linear-gradient(135deg,#ffb6d9,#ffd8e8,#fff3f8);
-    overflow:hidden;
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:flex-start; /* alinha no topo para rolar */
     min-height:100vh;
-    padding:10px;
+    padding:12px;
+    overflow-y:auto; /* permite rolagem */
+    overflow-x:hidden;
 }
 
 .container{
     background:white;
     width:100%;
-    max-width:450px;
-    padding:16px 16px 20px;
+    max-width:420px;
+    padding:18px 16px 22px;
     border-radius:16px;
     text-align:center;
     box-shadow:0 10px 30px rgba(0,0,0,.15);
     position:relative;
     z-index:2;
+    margin:auto 0;
 }
 
 h1{
     color:#ff3d7f;
     margin-bottom:10px;
-    font-size:1.4rem;
+    font-size:1.3rem;
 }
 
 p{
     color:#444;
     margin-bottom:16px;
-    font-size:0.95rem;
+    font-size:0.9rem;
     line-height:1.4;
 }
 
@@ -53,22 +55,27 @@ p{
     justify-content:center;
     gap:12px;
     flex-wrap:wrap;
+    margin-bottom:5px;
 }
 
 button{
-    padding:12px 20px;
+    padding:10px 20px;
     border:none;
     border-radius:40px;
     cursor:pointer;
-    font-size:1rem;
+    font-size:0.95rem;
     transition:.2s;
-    min-width:100px;
     flex:1 1 auto;
+    min-width:100px;
 }
 
 #sim{
     background:#ff4f87;
     color:white;
+}
+
+#sim:hover{
+    transform:scale(1.03);
 }
 
 #nao{
@@ -78,31 +85,32 @@ button{
 
 #resultado{
     display:none;
-    margin-top:16px;
+    margin-top:15px;
 }
 
 #resultado h2{
     color:#ff2d75;
     margin-bottom:10px;
-    font-size:1.5rem;
+    font-size:1.4rem;
 }
 
 .info{
     background:#fff2f6;
-    padding:12px;
+    padding:12px 10px;
     border-radius:12px;
-    margin:12px 0;
+    margin:10px 0;
     text-align:center;
 }
 
 .info h3 {
-    font-size:1.1rem;
+    font-size:1rem;
     margin-bottom:6px;
 }
 
 .info p {
     margin-bottom:4px;
-    font-size:0.9rem;
+    font-size:0.85rem;
+    text-align:center;
 }
 
 .info strong {
@@ -115,34 +123,40 @@ a.local{
     text-decoration:none;
     background:#ff4f87;
     color:white;
-    padding:10px 18px;
+    padding:8px 16px;
     border-radius:30px;
-    font-size:0.9rem;
+    font-size:0.85rem;
     text-align:center;
     width:100%;
     max-width:220px;
 }
 
+/* Botões de confirmação - menores */
 .botoes-confirmacao {
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:8px;
     justify-content:center;
     margin-top:14px;
 }
 
 .botoes-confirmacao a {
     display:inline-block;
-    padding:10px 16px;
+    padding:10px 14px;
     border-radius:30px;
     text-decoration:none;
     font-weight:bold;
-    font-size:0.9rem;
+    font-size:0.85rem;
     transition:0.2s;
+    min-width:120px;
     color:white;
     text-align:center;
     flex:1 1 auto;
-    min-width:100px;
+    max-width:100%;
+}
+
+.botoes-confirmacao a:hover {
+    transform:scale(1.02);
 }
 
 .botao-presenca {
@@ -153,7 +167,40 @@ a.local{
     background:#dc3545;
 }
 
-/* Responsivo para telas muito pequenas */
+/* Responsividade para telas muito pequenas */
+@media (max-width: 400px) {
+    .container {
+        padding:14px 12px 18px;
+    }
+    h1 {
+        font-size:1.1rem;
+    }
+    p {
+        font-size:0.8rem;
+    }
+    button {
+        font-size:0.85rem;
+        padding:8px 14px;
+        min-width:80px;
+    }
+    .botoes {
+        gap:8px;
+    }
+    .info p {
+        font-size:0.78rem;
+    }
+    .botoes-confirmacao a {
+        font-size:0.78rem;
+        padding:8px 10px;
+        min-width:90px;
+    }
+    a.local {
+        font-size:0.78rem;
+        padding:6px 12px;
+    }
+}
+
+/* Em telas muito pequenas, empilhar verticalmente */
 @media (max-width: 480px) {
     .botoes {
         flex-direction:column;
@@ -162,7 +209,6 @@ a.local{
     button {
         width:100%;
         min-width:unset;
-        padding:14px;
     }
     .botoes-confirmacao {
         flex-direction:column;
@@ -170,17 +216,9 @@ a.local{
     }
     .botoes-confirmacao a {
         width:100%;
-        min-width:unset;
-        padding:14px;
-    }
-    .container {
-        padding:14px;
-    }
-    a.local {
         max-width:100%;
+        min-width:unset;
     }
-    h1 { font-size:1.2rem; }
-    #resultado h2 { font-size:1.3rem; }
 }
 
 .emoji{
@@ -270,8 +308,8 @@ const botaoNao=document.getElementById("nao");
 
 function fugir(){
 
-const largura=window.innerWidth-120;
-const altura=window.innerHeight-80;
+const largura=window.innerWidth-100;
+const altura=window.innerHeight-70;
 
 botaoNao.style.position="fixed";
 botaoNao.style.left=Math.random()*largura+"px";
@@ -295,7 +333,7 @@ function soltarAmor(){
 
 const emojis=["❤️","💖","💕","💗","💘","🥰","😍","😊","😘"];
 
-let quantidade=120; // reduzido para não sobrecarregar
+let quantidade=150; // reduzido para não sobrecarregar
 
 for(let i=0;i<quantidade;i++){
 
