@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tenho uma pergunta ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ffb6d9,#ffd8e8,#fff3f8);
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.container{
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+    position:relative;
+    z-index:2;
+}
+
+h1{
+    color:#ff3d7f;
+    margin-bottom:15px;
+}
+
+p{
+    color:#444;
+    margin-bottom:25px;
+}
+
+.botoes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:18px;
+    transition:.25s;
+}
+
+#sim{
+    background:#ff4f87;
+    color:white;
+}
+
+#sim:hover{
+    transform:scale(1.1);
+}
+
+#nao{
+    background:#ddd;
+    position:relative;
+}
+
+#resultado{
+    display:none;
+    margin-top:25px;
+}
+
+#resultado h2{
+    color:#ff2d75;
+    margin-bottom:15px;
+}
+
+.info{
+    background:#fff2f6;
+    padding:15px;
+    border-radius:15px;
+    margin:15px 0;
+}
+
+a.local{
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    background:#ff4f87;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+}
+
+.emoji{
+    position:fixed;
+    font-size:24px;
+    animation:cair linear forwards;
+    pointer-events:none;
+}
+
+@keyframes cair{
+    0%{
+        transform:translateY(-100px) rotate(0deg);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>❤️ Tenho uma perguntinha... ❤️</h1>
+
+<p>Você aceita sair comigo na sua próxima folga? 🥹</p>
+
+<div class="botoes">
+<button id="sim">SIM ❤️</button>
+<button id="nao">NÃO 😅</button>
+</div>
+
+<div id="resultado">
+
+<h2>EEEEEEE!! 🥰❤️</h2>
+
+<p>Mal posso esperar por esse momento com você.</p>
+
+<div class="info">
+
+<h3>📍 Ponto de encontro</h3>
+
+<p><strong>Cantinho da Nil</strong></p>
+
+<p>
+Vila dos Pescadores<br>
+Estr. p/ Praia Olho de Porco<br>
+Paço do Lumiar - MA
+</p>
+
+<p><strong>🕓 Horário:</strong> 16:00</p>
+
+<p><strong>📅 Data:</strong> Na sua próxima folga ❤️</p>
+
+<a class="local"
+target="_blank"
+href="https://maps.app.goo.gl/TsNqcgzimaAAWEjV8">
+📍 Ver ponto de encontro
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const botaoNao=document.getElementById("nao");
+
+function fugir(){
+
+const largura=window.innerWidth-120;
+const altura=window.innerHeight-80;
+
+botaoNao.style.position="fixed";
+botaoNao.style.left=Math.random()*largura+"px";
+botaoNao.style.top=Math.random()*altura+"px";
+
+}
+
+botaoNao.addEventListener("mouseover",fugir);
+botaoNao.addEventListener("click",fugir);
+
+document.getElementById("sim").onclick=function(){
+
+document.querySelector(".botoes").style.display="none";
+document.getElementById("resultado").style.display="block";
+
+soltarAmor();
+
+}
+
+function soltarAmor(){
+
+const emojis=["❤️","💖","💕","💗","💘","🥰","😍","😊","😘"];
+
+let quantidade=180;
+
+for(let i=0;i<quantidade;i++){
+
+let e=document.createElement("div");
+
+e.className="emoji";
+
+e.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.animationDuration=(Math.random()*3+2)+"s";
+
+e.style.fontSize=(20+Math.random()*25)+"px";
+
+e.style.animationDelay=Math.random()*2+"s";
+
+document.body.appendChild(e);
+
+setTimeout(()=>{
+e.remove();
+},6000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
