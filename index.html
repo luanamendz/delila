@@ -100,18 +100,33 @@ a.local{
     border-radius:30px;
 }
 
-/* Estilo para os botões de confirmação */
+/* Estilos para os botões de confirmação */
 .botoes-confirmacao {
     display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 15px;
     flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
 }
 .botoes-confirmacao a {
-    flex: 1 1 auto;
-    min-width: 140px;
-    margin-top: 0; /* remove o margin-top do .local */
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.2s;
+    min-width: 160px;
+    color: white;
+}
+.botoes-confirmacao a:hover {
+    transform: scale(1.05);
+}
+.botao-presenca {
+    background: #25D366; /* verde WhatsApp */
+}
+.botao-ausencia {
+    background: #dc3545; /* vermelho */
 }
 
 .emoji{
@@ -175,23 +190,23 @@ href="https://maps.app.goo.gl/TsNqcgzimaAAWEjV8">
 📍 Ver ponto de encontro
 </a>
 
-<!-- NOVOS BOTÕES DE CONFIRMAÇÃO -->
+</div> <!-- fim .info -->
+
+<!-- BOTÕES DE CONFIRMAÇÃO FORA DA .info, MAS DENTRO DE #resultado -->
 <div class="botoes-confirmacao">
-    <a class="local"
+    <a class="botao-presenca"
        href="https://wa.me/5598985197503?text=eu%20tentei%20apertar%20no%20n%C3%A3o%20mais%20de%205%20vezes%2C%20mas%20eu%20aceito%20sair%20contigo"
        target="_blank">
        ✅ Confirmar presença
     </a>
-    <a class="local"
+    <a class="botao-ausencia"
        href="https://wa.me/5598985197503?text=n%C3%A3o%20vai%20dar%20pra%20eu%20%3D%28"
        target="_blank">
        ❌ Não vai dar pra eu =(
     </a>
 </div>
 
-</div>
-
-</div>
+</div> <!-- fim #resultado -->
 
 </div>
 
